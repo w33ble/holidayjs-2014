@@ -1,0 +1,16 @@
+{
+  "name": "wishlist-static",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-less": "^1.3.6",
+    "require-dir": "^0.1.0"
+  }
+}
