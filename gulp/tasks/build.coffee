@@ -3,6 +3,7 @@ config = require '../config'
 
 gulp.task 'build', [
   'less'
+  'coffee'
   'html'
   'copy_bower'
 ]

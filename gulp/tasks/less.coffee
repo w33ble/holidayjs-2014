@@ -2,7 +2,6 @@ gulp = require 'gulp'
 less = require 'gulp-less'
 cache = require 'gulp-cached'
 sourcemaps = require 'gulp-sourcemaps'
-reload = require('browser-sync').reload
 config = require '../config'
 
 gulp.task 'less', ->

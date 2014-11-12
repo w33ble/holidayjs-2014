@@ -19,6 +19,10 @@ module.exports =
     ]
     dest: dest + '/vendor'
     watch: path.resolve __dirname, '../bower.json'
+  coffee:
+    src: src + '/coffee/**/*.coffee'
+    dest: dest + '/js'
+    watch: src + '/coffee/**/*.coffee'
   html:
     src: src + '/html/**/*.html'
     dest: dest
