@@ -1,4 +1,4 @@
 gulp = require 'gulp'
 config = require '../config'
 
-gulp.task 'default', ['build', 'watch'], ->
+gulp.task 'default', ['watch', 'build'], ->
