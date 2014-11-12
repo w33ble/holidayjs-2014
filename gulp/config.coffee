@@ -28,6 +28,10 @@ module.exports =
     dest: dest
     watch: "#{src}/{html/**/*.html,layout.html}"
     layout: fs.readFileSync src + '/layout.html', 'utf8'
+  js:
+    src: src + '/js/**/*.js'
+    dest: dest + '/js'
+    watch: src + '/js/**/*.js'
   less:
     src: src + '/less/*.less'
     dest: dest + '/css'

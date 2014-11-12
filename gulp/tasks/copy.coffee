@@ -10,3 +10,7 @@ gulp.task 'copy_bower', ->
       bowerJson: config.bower.json
   .pipe filter config.bower.files
   .pipe gulp.dest config.bower.dest
+
+gulp.task 'copy_js', ->
+  gulp.src config.js.src
+  .pipe gulp.dest config.js.dest
