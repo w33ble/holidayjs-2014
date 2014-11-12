@@ -18,6 +18,12 @@ module.exports =
       'modernizr.js'
     ]
     dest: dest + '/vendor'
+    watch: path.resolve __dirname, '../bower.json'
+  html:
+    src: src + '/html/**/*.html'
+    dest: dest
+    watch: src + '/html/**/*.html'
+    layout: fs.readFileSync src + '/layouts/main.html', 'utf8'
   less:
     src: src + '/less/*.less'
     dest: dest + '/css'
