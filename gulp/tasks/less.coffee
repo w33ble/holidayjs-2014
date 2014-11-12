@@ -6,10 +6,15 @@ reload = require('browser-sync').reload
 config = require '../config'
 
 gulp.task 'less', ->
-  gulp.src config.less.src
-  .pipe cache 'less_files'
-  .pipe sourcemaps.init()
-  .pipe less()
-  .pipe sourcemaps.write()
-  .pipe gulp.dest config.build.path + '/css'
-  .pipe reload stream:true
+  if config.site.env is 'development'
+    gulp.src config.less.src
+    .pipe cache 'less_files'
+    .pipe sourcemaps.init()
+    .pipe less()
+    .pipe sourcemaps.write()
+    .pipe gulp.dest config.less.dest
+  else
+    gulp.src config.less.src
+    .pipe cache 'less_files'
+    .pipe less()
+    .pipe gulp.dest config.less.dest
