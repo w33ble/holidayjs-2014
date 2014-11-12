@@ -3,6 +3,9 @@ dest = path.resolve __dirname, '../build'
 src = path.resolve __dirname, '../src'
 
 module.exports =
+  browserSync:
+    server:
+      baseDir: dest
   build:
     path: dest
   less:
