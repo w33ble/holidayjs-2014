@@ -24,10 +24,10 @@ module.exports =
     dest: dest + '/js'
     watch: src + '/coffee/**/*.coffee'
   html:
-    src: src + '/html/**/*.html'
+    src: "#{src}/html/**/*.html"
     dest: dest
-    watch: src + '/html/**/*.html'
-    layout: fs.readFileSync src + '/layouts/main.html', 'utf8'
+    watch: "#{src}/{html/**/*.html,layout.html}"
+    layout: fs.readFileSync src + '/layout.html', 'utf8'
   less:
     src: src + '/less/*.less'
     dest: dest + '/css'

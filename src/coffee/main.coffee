@@ -1,1 +1,1 @@
-console.log 'hello world'
+alert 'main.js loaded'
