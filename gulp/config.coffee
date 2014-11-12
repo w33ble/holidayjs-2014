@@ -8,6 +8,7 @@ module.exports =
   browserSync:
     server:
       baseDir: dest
+    open: false
   build:
     path: dest
   bower:
