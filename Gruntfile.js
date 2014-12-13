@@ -102,11 +102,23 @@ module.exports = function (grunt) {
           }
         }
       },
-      dist: {
+      heroku: {
         options: {
+          open: false,
+          hostname: '0.0.0.0',
+          livereload: false,
           port: (process.env.PORT || 9002),
-          open: true,
-          base: '<%= yeoman.dist %>'
+          keepalive: true,
+          middleware: function (connect) {
+            return [
+              connect.static('.tmp'),
+              connect().use(
+                '/bower_components',
+                connect.static('./bower_components')
+              ),
+              connect.static(appConfig.app)
+            ];
+          }
         }
       }
     },
