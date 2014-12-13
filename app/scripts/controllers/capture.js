@@ -2,10 +2,10 @@
 
 /**
  * @ngdoc function
- * @name holidayjs2014App.controller:MainCtrl
+ * @name badsantaApp.controller:CaptureCtrl
  * @description
- * # MainCtrl
- * Controller of the holidayjs2014App
+ * # CaptureCtrl
+ * Controller of the badsantaApp
  */
 angular.module('badsantaApp')
   .controller('CaptureCtrl', function ($scope) {
