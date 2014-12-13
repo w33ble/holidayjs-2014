@@ -10,12 +10,15 @@
  * Controller of the badsantaApp
  */
 angular.module('badsantaApp')
-  .controller('CaptureCtrl', function ($scope) {
+  .controller('CaptureCtrl', function ($scope, $firebase, FBURL) {
     var video = document.getElementById('video');
     var canvas = document.getElementById('canvas');
     var capture = document.getElementById('capture-btn');
     var context = canvas.getContext('2d');
     var rect; // reference to the tracking event
+
+    var ref = new Firebase(FBURL);
+    $scope.images = $firebase(ref).$asArray();
 
     // image we inject
     var imageObj = new Image();
@@ -57,9 +60,11 @@ angular.module('badsantaApp')
       draw(video, context, canvas.width, canvas.height);
       context.drawImage(imageObj, rect.x, rect.y - rect.height + 20, rect.width, rect.height);
       tracker.removeListener('track', trackHandle);
+      $scope.images.$add(canvas.toDataURL());
+
     }
 
-    $scope.on('$destroy', function () {
+    $scope.$on('$destroy', function () {
       tracker.removeListener('track', trackHandle);
       capture.removeEventListener('click', buttonClickHandler);
     });
