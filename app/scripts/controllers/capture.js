@@ -11,15 +11,21 @@
  */
 angular.module('badsantaApp')
   .controller('CaptureCtrl', function ($scope) {
+
+    var width = $('body').width();
     var video = document.getElementById('video');
     var canvas = document.getElementById('canvas');
+    $('#video').css('margin-left', width/2 - $('#video').width()/2);
+    $('#canvas').css('margin-left', width/2 - $('#canvas').width()/2);
+    $('.sprite_container').css('margin-left', width/2 - $('.sprite_container').width()/2);
+    $('#capture-btn').css('margin-left', width/2 - $('#capture-btn').width()/2);
     var capture = document.getElementById('capture-btn');
     var context = canvas.getContext('2d');
     var rect; // reference to the tracking event
 
     // image we inject
     var imageObj = new Image();
-    imageObj.src = '/images/sprites/santahat.png';
+    imageObj.src = '/images/sprites/santa_hat_2.png';
 
     var tracker = new tracking.ObjectTracker('face');
     tracker.setInitialScale(4);
@@ -39,16 +45,25 @@ angular.module('badsantaApp')
       //setTimeout(draw, 20, v,c,w,h);
     }
 
+    $('.sprite_container').on('click', 'img', function (event) {
+      $('.sprite_container img').each( function() {
+        $(this).removeClass();
+      });
+      $(this).toggleClass('active');
+      imageObj.src = $(this).attr('src');
+    });
+
+
     function trackHandle(event) {
-      //context.clearRect(0, 0, canvas.width, canvas.height);
+      context.clearRect(0, 0, canvas.width, canvas.height);
       event.data.forEach(function(r) {
         rect = r;
-        context.strokeStyle = '#a64ceb';
+        /*context.strokeStyle = '#a64ceb';
         context.strokeRect(rect.x, rect.y, rect.width, rect.height);
         context.font = '11px Helvetica';
         context.fillStyle = "#fff";
         context.fillText('x: ' + rect.x + 'px', rect.x + rect.width + 5, rect.y + 11);
-        context.fillText('y: ' + rect.y + 'px', rect.x + rect.width + 5, rect.y + 22);
+        context.fillText('y: ' + rect.y + 'px', rect.x + rect.width + 5, rect.y + 22);*/
         context.drawImage(imageObj, rect.x, rect.y - rect.height + 20, rect.width, rect.height);
       });
     }
