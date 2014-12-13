@@ -25,6 +25,7 @@ body
   height: 1024px;
   text-align: center;
   background: url("/images/tree.png");
+  background-repeat: no-repeat;
 }
 
 .link
@@ -117,8 +118,14 @@ right: 250px;
   }
 }
 /* Capture */
-video, canvas {
+video {
   margin-left: 230px;
   margin-top: 120px;
   position: absolute;
+}
+canvas {
+  margin-left: 500px;
+  margin-top: 120px;
+  position: absolute;
+  border: 5px solid black;
 }
