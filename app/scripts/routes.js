@@ -81,6 +81,10 @@ angular.module('badsantaApp')
         templateUrl: 'views/chat.html',
         controller: 'ChatCtrl'
       })
+      .when('/capture', {
+        templateUrl: 'views/capture.html',
+        controller: 'CaptureCtrl'
+      })
       .otherwise({redirectTo: '/'});
   }])
 
