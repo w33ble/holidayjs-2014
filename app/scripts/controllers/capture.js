@@ -10,7 +10,7 @@
  * Controller of the badsantaApp
  */
 angular.module('badsantaApp')
-  .controller('CaptureCtrl', function () {
+  .controller('CaptureCtrl', function ($scope) {
     var video = document.getElementById('video');
     var canvas = document.getElementById('canvas');
     var capture = document.getElementById('capture-btn');
@@ -29,11 +29,7 @@ angular.module('badsantaApp')
 
     tracker.on('track', trackHandle);
 
-    capture.addEventListener('click', function () {
-      draw(video, context, canvas.width, canvas.height);
-      context.drawImage(imageObj, rect.x, rect.y - rect.height + 20, rect.width, rect.height);
-      tracker.removeListener('track', trackHandle);
-    });
+    capture.addEventListener('click', buttonClickHandler);
 
     function draw(v,c,w,h) {
       if (v.paused || v.ended) {
@@ -56,4 +52,15 @@ angular.module('badsantaApp')
         context.drawImage(imageObj, rect.x, rect.y - rect.height + 20, rect.width, rect.height);
       });
     }
+
+    function buttonClickHandler() {
+      draw(video, context, canvas.width, canvas.height);
+      context.drawImage(imageObj, rect.x, rect.y - rect.height + 20, rect.width, rect.height);
+      tracker.removeListener('track', trackHandle);
+    }
+
+    $scope.on('$destroy', function () {
+      tracker.removeListener('track', trackHandle);
+      capture.removeEventListener('click', buttonClickHandler);
+    });
   });
