@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name badsantaApp.controller:MainCtrl
+ * @name holidayjs2014App.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the badsantaApp
+ * Controller of the holidayjs2014App
  */
-angular.module('badsantaApp')
+angular.module('holidayjs2014App')
   .controller('MainCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',

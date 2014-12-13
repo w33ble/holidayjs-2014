@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc overview
- * @name badsantaApp
+ * @name holidayjs2014App
  * @description
- * # badsantaApp
+ * # holidayjs2014App
  *
  * Main module of the application.
  */
-angular.module('badsantaApp', [
+angular.module('holidayjs2014App', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
