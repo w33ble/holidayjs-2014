@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <div id="tree">
+        <div class="ornament orn-first" ng-class="{'orn-active':santa1.active}"ng-click="onClickSanta(santa1, santa1BG)" ng-style="santa1BG">
+          <span ng-class="{hidden:santa1.active}">{{santa1.name}}</span>
+          <img ng-class="{hidden:!santa1.active}" url="{{santa1.imageUrl}}"/></div>
+        <div class="ornament orn-second" ng-class="{'orn-active':santa2.active}" ng-click="onClickSanta(santa2, santa2BG)" ng-style="santa2BG">
+          <span ng-class="{hidden:santa2.active}">{{santa2.name}}</span>
+          <img url="{{santa2.imageUrl}}" ng-class="{hidden:!santa2.active}"/></div>
+        <div class="ornament orn-third" ng-class="{'orn-active':santa3.active}" ng-click="onClickSanta(santa3, santa3BG)" ng-style="santa3BG">
+          <span ng-class="{hidden:santa3.active}">{{santa3.name}}</span>
+          <img url="{{santa3.imageUrl}}" ng-class="{hidden:!santa3.active}"/>
+        </div>
+        <div class="ornament orn-fourth" ng-class="{'orn-active':santa4.active}" ng-click="onClickSanta(santa4, santa4BG)" ng-style="santa4BG">
+          <span ng-class="{hidden:santa4.active}">{{santa4.name}}</span>
+          <img ng-class="{hidden:!santa4.active}" url="{{santa4.imageUrl}}"/></div>
+        <div class="ornament orn-fifth" ng-class="{'orn-active':santa5.active}" ng-click="onClickSanta(santa5, santa5BG)" ng-style="santa5BG">
+          <span ng-class="{hidden:santa5.active}">{{santa5.name}}</span>
+          <img ng-class="{hidden:!santa5.active}" url="{{santa5.imageUrl}}"/></div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <a href="/#/capture" class="link" role="button">Capture your own Bad Santa</a>
+      <a href="/#/vote" class="link" role="button">Vote for a Bad Santa</a>
+    </div>
+  </div>
+  
+</div>
+
