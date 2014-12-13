@@ -104,6 +104,7 @@ module.exports = function (grunt) {
       },
       dist: {
         options: {
+          port: (process.env.PORT || 9002),
           open: true,
           base: '<%= yeoman.dist %>'
         }
@@ -389,12 +390,12 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
-    'concat',
+    // 'concat',
     'ngAnnotate',
     'copy:dist',
     'cdnify',
-    'cssmin',
-    'uglify',
+    // 'cssmin',
+    // 'uglify',
     'filerev',
     'usemin',
     'htmlmin'
