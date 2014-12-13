@@ -2,7 +2,7 @@
 body
 {
   background: url("/images/11.jpg");
-  background-position:cover;
+  background-size:cover;
 }
 
 #siteHeader
@@ -29,6 +29,14 @@ body
 {
   padding: 10px;
   border-radius: 5px;
+  color: green;
+  font-family: Pacifico;
+  font-size: 32px;
+  display: inline-block;
+  background: #fff;
+  margin-top:20px;
+  text-align: center;
+  text-shadow: 2px 2px 2px #666;;
 }
 
 /* Responsive: Portrait tablets and up */
