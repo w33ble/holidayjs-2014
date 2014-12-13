@@ -105,7 +105,7 @@ module.exports = function (grunt) {
       dist: {
         options: {
           open: true,
-          base: 'dist'
+          base: '<%= yeoman.dist %>'
         }
       }
     },
@@ -137,8 +137,8 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '.tmp',
-            'dist/{,*/}*',
-            '!dist/.git*'
+            '<%= yeoman.dist %>/{,*/}*',
+            '!<%= yeoman.dist %>/.git*'
           ]
         }]
       },
@@ -175,10 +175,10 @@ module.exports = function (grunt) {
     filerev: {
       dist: {
         src: [
-          'dist/scripts/{,*/}*.js',
-          'dist/styles/{,*/}*.css',
-          'dist/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-          'dist/styles/fonts/*'
+          '<%= yeoman.dist %>/scripts/{,*/}*.js',
+          '<%= yeoman.dist %>/styles/{,*/}*.css',
+          '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+          '<%= yeoman.dist %>/styles/fonts/*'
         ]
       }
     },
@@ -189,7 +189,7 @@ module.exports = function (grunt) {
     useminPrepare: {
       html: './index.html',
       options: {
-        dest: 'dist',
+        dest: '<%= yeoman.dist %>',
         flow: {
           html: {
             steps: {
@@ -204,10 +204,10 @@ module.exports = function (grunt) {
 
     // Performs rewrites based on filerev and the useminPrepare configuration
     usemin: {
-      html: ['dist/{,*/}*.html'],
-      css: ['dist/styles/{,*/}*.css'],
+      html: ['<%= yeoman.dist %>/{,*/}*.html'],
+      css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
       options: {
-        assetsDirs: ['dist','dist/images']
+        assetsDirs: ['<%= yeoman.dist %>','<%= yeoman.dist %>/images']
       }
     },
 
@@ -218,7 +218,7 @@ module.exports = function (grunt) {
     // cssmin: {
     //   dist: {
     //     files: {
-    //       'dist/styles/main.css': [
+    //       '<%= yeoman.dist %>/styles/main.css': [
     //         '.tmp/styles/{,*/}*.css'
     //       ]
     //     }
@@ -227,8 +227,8 @@ module.exports = function (grunt) {
     // uglify: {
     //   dist: {
     //     files: {
-    //       'dist/scripts/scripts.js': [
-    //         'dist/scripts/scripts.js'
+    //       '<%= yeoman.dist %>/scripts/scripts.js': [
+    //         '<%= yeoman.dist %>/scripts/scripts.js'
     //       ]
     //     }
     //   }
@@ -243,7 +243,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: './images',
           src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: 'dist/images'
+          dest: '<%= yeoman.dist %>/images'
         }]
       }
     },
@@ -254,7 +254,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: './images',
           src: '{,*/}*.svg',
-          dest: 'dist/images'
+          dest: '<%= yeoman.dist %>/images'
         }]
       }
     },
@@ -270,9 +270,9 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: 'dist',
+          cwd: '<%= yeoman.dist %>',
           src: ['*.html', 'views/{,*/}*.html'],
-          dest: 'dist'
+          dest: '<%= yeoman.dist %>'
         }]
       }
     },
@@ -293,7 +293,7 @@ module.exports = function (grunt) {
     // Replace Google CDN references
     cdnify: {
       dist: {
-        html: ['dist/*.html']
+        html: ['<%= yeoman.dist %>/*.html']
       }
     },
 
@@ -304,7 +304,7 @@ module.exports = function (grunt) {
           expand: true,
           dot: true,
           cwd: '.',
-          dest: 'dist',
+          dest: '<%= yeoman.dist %>',
           src: [
             '*.{ico,png,txt}',
             '.htaccess',
@@ -316,13 +316,13 @@ module.exports = function (grunt) {
         }, {
           expand: true,
           cwd: '.tmp/images',
-          dest: 'dist/images',
+          dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
         }, {
           expand: true,
           cwd: 'bower_components/bootstrap/dist',
           src: 'fonts/*',
-          dest: 'dist'
+          dest: '<%= yeoman.dist %>'
         }]
       },
       styles: {
@@ -392,12 +392,12 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
-    // 'concat',
+    'concat',
     'ngAnnotate',
     'copy:dist',
     'cdnify',
-    // 'cssmin',
-    // 'uglify',
+    'cssmin',
+    'uglify',
     'filerev',
     'usemin',
     'htmlmin'
