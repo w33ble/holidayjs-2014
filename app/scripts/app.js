@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular.module('holidayjs2014App', [
+angular.module('badsantaApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',

@@ -28,7 +28,7 @@
  *
  */
 angular.module('badsantaApp')
-
+  
 /**
  * Adds a special `whenAuthenticated` method onto $routeProvider. This special method,
  * when called, invokes the authRequired() service (see simpleLogin.js).

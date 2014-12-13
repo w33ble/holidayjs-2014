@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the holidayjs2014App
  */
-angular.module('holidayjs2014App')
+angular.module('badsantaApp')
   .controller('MainCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
