@@ -12,8 +12,6 @@ angular.module('badsantaApp')
 
   	var fireRef = new Firebase(FBURL);
 
-	var allPics =  
-
   	$scope.santaPics = $firebase(fireRef).$asArray().reverse();
 
 
