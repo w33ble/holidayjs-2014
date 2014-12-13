@@ -102,10 +102,23 @@ module.exports = function (grunt) {
           }
         }
       },
-      dist: {
+      heroku: {
         options: {
-          open: true,
-          base: '<%= yeoman.dist %>'
+          open: false,
+          hostname: '0.0.0.0',
+          livereload: false,
+          port: (process.env.PORT || 9002),
+          keepalive: true,
+          middleware: function (connect) {
+            return [
+              connect.static('.tmp'),
+              connect().use(
+                '/bower_components',
+                connect.static('./bower_components')
+              ),
+              connect.static(appConfig.app)
+            ];
+          }
         }
       }
     },
@@ -389,12 +402,12 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
-    'concat',
+    // 'concat',
     'ngAnnotate',
     'copy:dist',
     'cdnify',
-    'cssmin',
-    'uglify',
+    // 'cssmin',
+    // 'uglify',
     'filerev',
     'usemin',
     'htmlmin'
