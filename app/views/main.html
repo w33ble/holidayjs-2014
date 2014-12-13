@@ -2,17 +2,16 @@
   <div class="row">
     <div class="col-md-9">
       <div id="tree">
-        
+
         <div ng-repeat="pic in santaPics.slice().reverse() | limitTo:5" class="ornament orn-first" ng-class="'orn-'+$index" ng-click="onClickSanta(santa1 santa1BG)">
           <img src="{{pic.$value}}"/>
-        </div>        
+        </div>
       </div>
     </div>
     <div class="col-md-3">
       <a href="/#/capture" class="link" role="button">Capture your own Bad Santa</a>
-      <a href="/#/vote" class="link" role="button">Vote for a Bad Santa</a>
     </div>
   </div>
-  
+
 </div>
 
