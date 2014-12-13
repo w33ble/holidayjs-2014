@@ -3,7 +3,7 @@
     <div class="col-md-9">
       <div id="tree">
         
-        <div ng-repeat="pic in santaPics" class="ornament orn-first" ng-class="'orn-'+$index" ng-click="onClickSanta(santa1 santa1BG)">
+        <div ng-repeat="pic in santaPics.slice().reverse() | limitTo:5" class="ornament orn-first" ng-class="'orn-'+$index" ng-click="onClickSanta(santa1 santa1BG)">
           <img src="{{pic.$value}}"/>
         </div>        
       </div>

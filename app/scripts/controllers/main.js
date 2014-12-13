@@ -12,6 +12,14 @@ angular.module('badsantaApp')
 
   	var fireRef = new Firebase(FBURL);
 
-  	$scope.santaPics = $firebase(fireRef).$asArray();
+	var allPics =  
 
+  	$scope.santaPics = $firebase(fireRef).$asArray().reverse();
+
+
+
+  }).filter('reverse', function () {
+  	return function (items) {
+  		return items.slice().reverse();
+  	};
   });
