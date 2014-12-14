@@ -75,7 +75,7 @@ angular.module('badsantaApp')
       context.drawImage(imageObj, rect.x, rect.y - rect.height + 20, rect.width, rect.height);
       tracker.removeListener('track', trackHandle);
       $scope.images.$add(canvas.toDataURL());
-
+      window.location.hash('');
     }
 
     $scope.$on('$destroy', function () {
